@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Charities | Clothes Bridge</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="productes.css">
+    
+    <script src="utils.js"></script>
+    <script>
+        // Restrict access for Individual and Donor
+        (function() {
+            try {
+                const auth = localStorage.getItem('aurum_auth');
+                if (auth) {
+                    const user = JSON.parse(auth);
+                    if (user.userType === 'individual' || user.userType === 'donor') {
+                        window.location.href = 'index.html';
+                    }
+                } else {
+                    // Not logged in? Redirect to home
+                    window.location.href = 'index.html';
+                }
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body class="h-full bg-main">
+  <div id="app" class="h-full overflow-auto w-full">
+    <main-nav></main-nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-16 px-4 text-center">
+        <p class="uppercase text-xs tracking-[6px] accent mb-3 font-semibold" data-i18n="our_partners">Our Partners</p>
+        <h1 class="font-display text-5xl md:text-6xl font-light mb-4" id="heroTagline" data-i18n="make_diff_together">Make a Difference <span class="accent font-semibold">Together</span></h1>
+        <p class="text-gray-400 max-w-lg mx-auto text-sm" data-i18n="select_charity_partner">Select a charity partner to view their mission and services.</p>
+    </section>
+
+    <!-- Charities Section with Cards Grid -->
+    <main class="max-w-7xl mx-auto px-4 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 mb-12">
+            <!-- Resala Charity Card -->
+            <div onclick="showCharityDetails('resala')" class="charity-select-card bg-card border border-[#222] rounded-3xl p-6 text-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 border border-gray-800 p-4 logo-container">
+                    <img src="https://www.google.com/s2/favicons?domain=resala.org&sz=256" alt="Resala Logo" class="max-w-full max-h-full object-contain filter-logo" loading="lazy">
+                </div>
+                <h3 class="font-display text-2xl font-semibold mb-2" data-i18n="resala_btn">Resala Charity</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="charity_partner_label">Charity Partner</p>
+            </div>
+            
+            <!-- Misr El Kheir Card -->
+            <div onclick="showCharityDetails('misrelkheir')" class="charity-select-card bg-card border border-[#222] rounded-3xl p-6 text-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 border border-gray-800 p-4 logo-container">
+                    <img src="https://www.google.com/s2/favicons?domain=mekeg.org&sz=256" alt="Misr El Kheir Logo" class="max-w-full max-h-full object-contain filter-logo" loading="lazy">
+                </div>
+                <h3 class="font-display text-2xl font-semibold mb-2" data-i18n="misr_btn">Misr El Kheir Foundation</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="charity_partner_label">Charity Partner</p>
+            </div>
+            
+            <!-- Orman Card -->
+            <div onclick="showCharityDetails('orman')" class="charity-select-card bg-card border border-[#222] rounded-3xl p-6 text-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 border border-gray-800 p-4 logo-container">
+                    <img src="https://www.google.com/s2/favicons?domain=dar-alorman.com&sz=256" alt="Orman Logo" class="max-w-full max-h-full object-contain filter-logo" loading="lazy">
+                </div>
+                <h3 class="font-display text-2xl font-semibold mb-2" data-i18n="orman_btn">Orman Association</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="charity_partner_label">Charity Partner</p>
+            </div>
+        </div>
+
+        <!-- Inline Charity Details Container -->
+        <div id="charityDetailsContainer" class="hidden animate-fade-in">
+            <div class="bg-card border border-[#222] rounded-3xl p-8 shadow-lg max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-2xl p-6 flex items-center justify-center h-64 border border-[#333] shadow-inner logo-detail-wrap">
+                        <img id="cDetailImg" src="" alt="Charity Logo" class="max-w-full max-h-full object-contain" loading="lazy">
+                    </div>
+                    <div>
+                        <p class="text-xs tracking-[3px] accent uppercase mb-2" data-i18n="charity_partner_label">Charity Partner</p>
+                        <h3 class="font-display text-3xl font-semibold mb-4" id="cDetailName"></h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed" id="cDetailDesc"></p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-xs uppercase tracking-wider text-gray-500 mb-3 block font-semibold" data-i18n="services_label">Services</label>
+                                <ul id="cDetailServices" class="list-disc list-inside text-sm text-gray-300 space-y-2"></ul>
+                            </div>
+                            <div>
+                                <label class="text-xs uppercase tracking-wider text-gray-500 mb-3 block font-semibold" data-i18n="contact_info_label">Contact Info</label>
+                                <div id="cDetailContact" class="text-sm text-gray-300 space-y-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main-footer></main-footer>
+  </div>
+
+  <script src="layout.js"></script>
+  <script src="auth.js"></script>
+  <script>
+      let currentOpenCharity = null;
+      const charitiesData = {
+          'resala': {
+              name: 'Resala Charity',
+              nameAr: 'جمعية رسالة',
+              img: 'https://www.google.com/s2/favicons?domain=resala.org&sz=256', // Real logo
+              desc: 'Resala Charity Organization is one of the largest volunteering organizations in Egypt. It relies on youth volunteers to provide help for millions of people in need across the country.',
+              descAr: 'جمعية رسالة للأعمال الخيرية هي واحدة من أكبر المنظمات التطوعية في مصر. تعتمد على الشباب المتطوعين لتقديم المساعدة لملايين المحتاجين في جميع أنحاء البلاد.',
+              services: ['Clothing distribution', 'Orphan care', 'Medical assistance', 'Blood donation campaigns'],
+              servicesAr: ['توزيع الملابس', 'رعاية الأيتام', 'المساعدة الطبية', 'حملات التبرع بالدم'],
+              contact: [
+                  { icon: 'phone', text: '19450' },
+                  { icon: 'mail', text: 'contact@resala.org' },
+                  { icon: 'map-pin', text: 'Cairo, Egypt', textAr: 'القاهرة، مصر' }
+              ]
+          },
+          'misrelkheir': {
+              name: 'Misr El Kheir Foundation',
+              nameAr: 'مؤسسة مصر الخير',
+              img: 'https://www.google.com/s2/favicons?domain=mekeg.org&sz=256', // Real logo
+              desc: 'Misr El Kheir Foundation (MEK) is a non-profit development institution established in 2007 with the objective of developing the Egyptian individual in a comprehensive manner.',
+              descAr: 'مؤسسة مصر الخير هي مؤسسة تنموية غير ربحية تأسست عام 2007 بهدف تنمية الفرد المصري بشكل شامل.',
+              services: ['Social Solidarity & Clothing', 'Health and Medical Care', 'Education', 'Scientific Research'],
+              servicesAr: ['التكافل الاجتماعي والملابس', 'الرعاية الصحية والطبية', 'التعليم', 'البحث العلمي'],
+              contact: [
+                  { icon: 'phone', text: '16140' },
+                  { icon: 'mail', text: 'info@mekeg.org' },
+                  { icon: 'map-pin', text: 'Cairo, Egypt', textAr: 'القاهرة، مصر' }
+              ]
+          },
+          'orman': {
+              name: 'Orman Association',
+              nameAr: 'جمعية الأورمان',
+              img: 'https://www.google.com/s2/favicons?domain=dar-alorman.com&sz=256', // Real logo
+              desc: 'Al-Orman Charity Association is an Egyptian non-governmental organization established in 1993, aiming to serve all categories of people in need without any religious or political discrimination.',
+              descAr: 'جمعية الأورمان الخيرية هي منظمة مصرية غير حكومية تأسست عام 1993، تهدف إلى خدمة جميع فئات المحتاجين دون أي تمييز ديني أو سياسي.',
+              services: ['Orphan care & marriage', 'Clothes distribution', 'Medical convoys & surgeries', 'Micro-projects for poor'],
+              servicesAr: ['رعاية وزواج الأيتام', 'توزيع الملابس', 'قوافل طبية وجراحات', 'مشاريع صغيرة للفقراء'],
+              contact: [
+                  { icon: 'phone', text: '19014' },
+                  { icon: 'mail', text: 'info@dar-alorman.com' },
+                  { icon: 'map-pin', text: 'Cairo, Egypt', textAr: 'القاهرة، مصر' }
+              ]
+          }
+      };
+
+      function showCharityDetails(id) {
+          currentOpenCharity = id;
+          const data = charitiesData[id];
+          if (!data) return;
+          
+          const currentLang = (typeof lang !== 'undefined') ? lang : 'en';
+          
+          document.getElementById('cDetailName').textContent = currentLang === 'ar' ? data.nameAr : data.name;
+          document.getElementById('cDetailImg').src = data.img;
+          document.getElementById('cDetailDesc').textContent = currentLang === 'ar' ? data.descAr : data.desc;
+          
+          const sList = currentLang === 'ar' ? data.servicesAr : data.services;
+          const servicesHtml = sList.map(s => `<li>${s}</li>`).join('');
+          document.getElementById('cDetailServices').innerHTML = servicesHtml;
+          
+          const contactHtml = data.contact.map(c => `<p class="flex items-center"><i data-lucide="${c.icon}" class="w-4 h-4 mr-3 text-[rgb(51,153,255)]"></i> ${currentLang === 'ar' && c.textAr ? c.textAr : c.text}</p>`).join('');
+          document.getElementById('cDetailContact').innerHTML = contactHtml;
+          
+          const container = document.getElementById('charityDetailsContainer');
+          
+          // Re-trigger animation
+          container.classList.remove('hidden');
+          container.classList.remove('animate-fade-in');
+          void container.offsetWidth; // trigger reflow
+          container.classList.add('animate-fade-in');
+          
+          if (window.lucide) {
+              window.lucide.createIcons();
+          }
+          
+          // Smooth scroll to details
+          setTimeout(() => {
+              container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 50);
+      }
+
+      // When language is toggled globally, update open details
+      document.addEventListener('click', (e) => {
+          if(e.target.closest('#langBtn') && currentOpenCharity) {
+              setTimeout(() => {
+                  showCharityDetails(currentOpenCharity);
+              }, 300);
+          }
+      });
+  </script>
+  <script src="productes.js"></script>
+</body>
+</html>

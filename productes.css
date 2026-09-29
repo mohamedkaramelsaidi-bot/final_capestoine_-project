@@ -1,0 +1,1465 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 153, 255, 0.3);
+  border: 2px solid #0f0f0f;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(51, 153, 255, 0.6);
+}
+
+:root {
+  --bg: #071329;              /* Deep midnight-blue background */
+  --card: #0d1f3f;            /* Premium dark-blue card background */
+  --accent: rgb(51, 153, 255);
+  --text: #f9f9f9;            /* Soft off-white text */
+  --font: 'Outfit';
+}
+
+/* Dark Mode */
+.dark-mode {
+  --bg: #0a0a0a;
+  --card: #141414;
+  --text: #ffffff;
+}
+
+/* Light Mode */
+.light-mode {
+  --bg: #faf9f6;              /* Warm alabaster light background */
+  --card: #ffffff;
+  --text: #1a1a1a;            /* Rich charcoal text */
+  --font: 'Outfit';
+}
+
+.light-mode .sidebar select,
+.light-mode .sidebar input {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #111;
+}
+
+.light-mode .sidebar select:focus,
+.light-mode .sidebar input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(51, 153, 255, .2);
+}
+
+.light-mode .modal-panel {
+  background: var(--card);
+  border: 1px solid #e0e0e0;
+}
+
+.light-mode .toast {
+  background: #ffffff;
+  border: 1px solid var(--accent);
+  color: #111;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .1);
+}
+
+.light-mode .nav-shadow {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
+}
+
+.light-mode .mobile-menu {
+  background: var(--card);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .1);
+}
+
+.light-mode .sidebar {
+  background: var(--card);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+}
+
+.light-mode .product-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+}
+
+.light-mode .text-gray-400 {
+  color: #666 !important;
+}
+
+.light-mode .text-gray-300 {
+  color: #333 !important;
+}
+
+.light-mode .text-gray-500 {
+  color: #888 !important;
+}
+
+.light-mode .text-gray-600 {
+  color: #777 !important;
+}
+
+.light-mode .bg-card .w-16 i[data-lucide],
+.light-mode .bg-card .w-14 i[data-lucide],
+.light-mode .bg-card .w-16 [data-lucide] svg,
+.light-mode .bg-card .w-14 [data-lucide] svg,
+.light-mode .bg-card .w-16 svg,
+.light-mode .bg-card .w-14 svg,
+.light-mode .bg-card [data-lucide] svg,
+.light-mode .bg-card [data-lucide] {
+  color: #000 !important;
+  stroke: #000 !important;
+  fill: #ffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.light-mode .border-dark {
+  border-color: #e0e0e0 !important;
+}
+
+.light-mode .bg-light {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+.light-mode .border-mid {
+  border-color: #ddd !important;
+}
+
+.light-mode #langBtn {
+  border-color: #ddd;
+  color: #111;
+}
+
+.light-mode #langBtn:hover {
+  border-color: var(--accent);
+}
+
+.light-mode .gold-btn {
+  background: linear-gradient(135deg, rgb(51, 153, 255), rgb(0, 102, 204));
+  color: #111 !important;
+  box-shadow: 0 10px 24px rgba(51, 153, 255, 0.16);
+}
+
+.light-mode .outline-btn {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+  background: rgba(51, 153, 255, 0.08);
+}
+
+.light-mode .outline-btn:hover,
+.light-mode .outline-btn:focus-visible {
+  background: rgba(51, 153, 255, 0.18);
+  color: #111 !important;
+  border-color: rgba(51, 153, 255, 0.9);
+}
+
+.light-mode .gold-btn {
+  background: linear-gradient(135deg, rgb(51, 153, 255), rgb(0, 102, 204));
+  color: #111 !important;
+  box-shadow: 0 10px 24px rgba(51, 153, 255, 0.16);
+}
+
+.light-mode .gold-btn:hover,
+.light-mode .gold-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(51, 153, 255, 0.22);
+}
+
+.light-mode .register-user-type-btn,
+.light-mode .section button,
+.light-mode .form-buttons button,
+.light-mode .modal-panel .gold-btn,
+.light-mode .modal-panel .outline-btn {
+  transition: background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.light-mode .register-user-type-btn {
+  background: #fff;
+  color: #1f2937;
+  border-color: #d1d5db;
+}
+
+.light-mode .register-user-type-btn:hover,
+.light-mode .register-user-type-btn.active {
+  background: rgba(51, 153, 255, 0.1);
+  color: #0f172a;
+  border-color: rgb(51, 153, 255);
+}
+
+.light-mode .section button {
+  background: rgb(51, 115, 255);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(51, 153, 255, 0.14);
+}
+
+.light-mode .section button:hover {
+  background: rgb(30, 79, 212);
+}
+
+.light-mode .form-buttons button {
+  box-shadow: 0 8px 20px rgba(51, 153, 255, 0.12);
+}
+
+.light-mode #checkoutForm input,
+.light-mode #checkoutForm select,
+.light-mode #checkoutForm textarea {
+  background: #f7f8fb;
+  border-color: #d7d7d7;
+  color: #111;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode #checkoutForm input:focus,
+.light-mode #checkoutForm select:focus,
+.light-mode #checkoutForm textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.14);
+}
+
+.light-mode .form-input {
+  background: #f5f5f5;
+  border: 1px solid #d7d7d7;
+  color: #111;
+}
+
+.light-mode .form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.18);
+}
+
+.light-mode button.border {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111 !important;
+  border-color: #d1d5db !important;
+}
+
+.light-mode button.border:hover {
+  background: rgba(51, 153, 255, 0.14);
+  color: #111 !important;
+}
+
+.dark-mode footer a.w-9.h-9:hover {
+  background: rgba(255,255,255,0.1) !important;
+  color: rgb(51, 153, 255) !important;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.light-mode .badge {
+  background: var(--accent);
+  color: #111;
+  
+}
+.light-mode .w-full{
+  background: var(--card);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    color: #111;
+
+
+}
+.light-mode .donation-form-card {
+  border: none;
+
+  
+}
+.light-mode .cart-counter {
+  background: var(--accent);
+  color: #111;
+}
+
+.light-mode .modal-overlay {
+  background: rgba(0, 0, 0, .5);
+}
+
+.light-mode .toast {
+  background: #ffffff;
+  border: 1px solid var(--accent);
+  color: #111;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .1);
+}
+.light-mode .form-input {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #111;
+}
+
+.nav-icon {
+  color: #e5e7eb;
+}
+
+.light-mode .nav-icon {
+  color: #000 !important;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Outfit', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+[dir="rtl"] .sidebar-left {
+  order: 2;
+}
+
+[dir="rtl"] .products-right {
+  order: 1;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.charity-user button[onclick*="openDonationModal"],
+.charity-user #productModalDonateButton {
+  display: none !important;
+}
+
+.bg-main {
+  background: var(--bg);
+}
+
+.bg-card {
+  background: var(--card);
+}
+
+.support {
+  color: var(--accent);
+}
+
+.gold-btn {
+  background: linear-gradient(135deg, rgb(51, 153, 255), rgb(0, 102, 204));
+  color: #ffffff !important; /* Elegant high-contrast white text on blue background */
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(51, 153, 255, 0.25);
+}
+
+.gold-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: all 0.6s ease;
+}
+
+.gold-btn:hover {
+  background: linear-gradient(135deg, rgb(77, 166, 255), rgb(0, 122, 244));
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(51, 153, 255, 0.45);
+}
+
+.gold-btn:hover::after {
+  left: 200%;
+}
+
+.outline-btn {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.outline-btn:hover {
+  background: rgba(51, 153, 255, 0.08);
+  border-color: var(--accent);
+  color: #ffffff !important;
+}
+
+.light-mode .outline-btn:hover {
+  color: var(--accent) !important;
+}
+
+.product-card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(51, 153, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .55), 0 0 30px rgba(51, 153, 255, 0.08);
+}
+
+.product-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.img-wrap {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--accent);
+  color: #111;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.sidebar {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .4);
+  padding: 24px;
+}
+
+.sidebar select,
+.sidebar input {
+  background: #252525;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  transition: .3s ease;
+}
+
+.sidebar select:focus,
+.sidebar input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(51, 153, 255, .2);
+}
+
+.star {
+  color: var(--accent);
+}
+
+.star.empty {
+  color: #444;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--accent);
+  color: #111;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .7);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  display: none;
+  justify-content: flex-end;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-panel {
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  background: var(--card);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: .4s cubic-bezier(.4, 0, .2, 1);
+  padding: 32px;
+}
+
+.modal-overlay.active .modal-panel {
+  transform: translateX(0);
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #1a1a1a;
+  border: 1px solid var(--accent);
+  color: #fff;
+  padding: 16px 28px;
+  border-radius: 12px;
+  z-index: 200;
+  transition: .4s ease;
+  opacity: 0;
+  box-shadow: 0 8px 30px rgba(51, 153, 255, .2);
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #333;
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.check-anim {
+  animation: checkPop .5s ease forwards;
+}
+
+.nav-shadow {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp .5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes langFadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes langFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.lang-transition-out {
+  animation: langFadeOut 0.3s ease-out forwards;
+}
+
+.lang-transition-in {
+  animation: langFadeIn 0.3s ease-out forwards;
+}
+
+#langBtn {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+#langBtn:hover {
+  transform: scale(1.05);
+}
+
+#langBtn.switching {
+  animation: langFadeOut 0.3s ease-out;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .5);
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mob-toggle {
+    display: flex !important;
+  }
+  .sidebar-wrap {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(0, 0, 0, .7);
+  }
+  .sidebar-wrap.active {
+    display: flex;
+  }
+  .sidebar-inner {
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+/* New Animations for Home Page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+/* Form Input Styles */
+.form-input {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  transition: .3s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(51, 153, 255, .25);
+}
+
+.form-input.border-red-500 {
+  border-color: #ef4444;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 12px;
+}
+
+.light-mode .form-input {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #111;
+}
+
+.light-mode .form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(51, 153, 255, .2);
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mob-toggle {
+    display: flex !important;
+  }
+  .sidebar-wrap {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(0, 0, 0, .7);
+  }
+  .sidebar-wrap.active {
+    display: flex;
+  }
+  .sidebar-inner {
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .mob-toggle {
+    display: none !important;
+  }
+  .sidebar-wrap {
+    display: block;
+  }
+  .filter-close {
+    display: none !important;
+  }
+}
+
+/* Icon colors for theme switching */
+.dark-mode i[data-lucide] {
+  color: #fff !important;
+}
+
+i[data-lucide] {
+  color: #111 !important;
+}
+
+/* Navbar icons styling */
+nav button > i[data-lucide] {
+  stroke: currentColor;
+}
+
+.light-mode nav button > i[data-lucide] {
+  color: #333 !important;
+  stroke: #333;
+}
+
+/* Dynamic Theme Overlays */
+.theme-overlay {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.85) 100%) !important;
+  z-index: 1;
+}
+
+.light-mode .theme-overlay {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.75) 100%) !important;
+  z-index: 1;
+}
+
+.theme-gradient-bottom {
+  background: linear-gradient(to bottom, transparent, transparent, #0d0d0d) !important;
+}
+
+.light-mode .theme-gradient-bottom {
+  background: linear-gradient(to bottom, transparent, transparent, #faf9f6) !important;
+}
+
+/* Glassmorphic Navbar Override */
+nav.sticky {
+  background: rgba(22, 22, 22, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s ease;
+}
+
+.light-mode nav.sticky {
+  background: rgba(250, 249, 246, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Glassmorphic Modals Override */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  z-index: 100;
+  display: none;
+  justify-content: flex-end;
+}
+
+.modal-panel {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  background: rgba(22, 22, 22, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding: 40px !important;
+}
+
+.light-mode .modal-panel {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Arabic RTL Typography */
+[dir="rtl"] {
+  font-family: 'Tajawal', sans-serif !important;
+}
+
+[dir="rtl"] .font-display {
+  font-family: 'Amiri', serif !important;
+  font-weight: 400;
+  letter-spacing: 0 !important;
+}
+
+/* Elegant Editorial Letter Spacing */
+.tracking-\[6px\] {
+  letter-spacing: 0.25em !important;
+}
+
+/* Premium Features & CTA Cards Hover transitions */
+.bg-card.border {
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.bg-card.border:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(51, 153, 255, 0.3) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(51, 153, 255, 0.05) !important;
+}
+
+.light-mode .bg-card.border {
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-mode .bg-card.border:hover {
+  border-color: rgba(51, 153, 255, 0.3) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 1. Glowing Pulse Salla Counter Badge */
+@keyframes pulse-glowing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(51, 153, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0);
+  }
+}
+
+.cart-counter {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  animation: pulse-glowing 2s infinite;
+  border: 1.5px solid #0d0d0d;
+}
+
+/* 2. Glassmorphic Premium Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(22, 22, 22, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(51, 153, 255, 0.3) !important;
+  color: #f9f9f9 !important;
+  padding: 16px 32px;
+  border-radius: 16px;
+  z-index: 200;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(51, 153, 255, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.light-mode .toast {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(51, 153, 255, 0.4) !important;
+  color: #1a1a1a !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* 3. Navbar Icons Hover Bounce */
+@keyframes icon-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+nav button:hover i[data-lucide],
+nav a:hover i[data-lucide],
+.nav-icon:hover {
+  animation: icon-bounce 0.6s ease-in-out;
+  color: var(--accent) !important;
+}
+
+/* 4. Elegant Glassmorphic Focus Highlights for Inputs & Sidebar */
+.form-input,
+.sidebar select,
+.sidebar input {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(30, 30, 30, 0.5) !important;
+  color: #ffffff !important;
+}
+
+.form-input:focus,
+.sidebar select:focus,
+.sidebar input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 15px rgba(51, 153, 255, 0.25) !important;
+  background: rgba(35, 35, 35, 0.85) !important;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.light-mode .form-input,
+.light-mode .sidebar select,
+.light-mode .sidebar input {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #1a1a1a !important;
+}
+
+.light-mode .form-input:focus,
+.light-mode .sidebar select:focus,
+.light-mode .sidebar input:focus {
+  background: #ffffff !important;
+  box-shadow: 0 0 15px rgba(51, 153, 255, 0.15) !important;
+}
+
+/* 5. Injected Floating Glassmorphic Scroll-To-Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: rgba(22, 22, 22, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(51, 153, 255, 0.3) !important;
+  color: var(--accent) !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(51, 153, 255, 0.35);
+}
+
+.scroll-to-top i[data-lucide] {
+  color: var(--accent) !important;
+  transition: color 0.3s ease;
+}
+
+.scroll-to-top:hover i[data-lucide] {
+  color: #ffffff !important;
+}
+
+.light-mode .scroll-to-top {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(51, 153, 255, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light-mode .scroll-to-top:hover {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+/* 6. Charity Brand Selection Cards Grid */
+.charity-select-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  background: var(--card);
+}
+
+.charity-select-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(51, 153, 255, 0.3) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(51, 153, 255, 0.08) !important;
+}
+
+.charity-select-card .logo-container {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.charity-select-card:hover .logo-container {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 8px 20px rgba(51, 153, 255, 0.15);
+  border-color: var(--accent) !important;
+}
+
+.light-mode .charity-select-card {
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-mode .charity-select-card:hover {
+  border-color: rgba(51, 153, 255, 0.3) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-mode .charity-select-card {
+  background: #ffffff;
+  color: #111;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+.light-mode .charity-select-card .logo-container {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.light-mode .charity-select-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.10) !important;
+}
+
+.light-mode .charity-select-card h3,
+.light-mode .charity-select-card .accent {
+  color: #111 !important;
+}
+
+.light-mode .charity-select-card p,
+.light-mode #charityDetailsContainer .text-gray-400,
+.light-mode #charityDetailsContainer .text-gray-500,
+.light-mode #charityDetailsContainer .text-gray-300 {
+  color: #6b7280 !important;
+}
+
+.light-mode #charityDetailsContainer .bg-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.08);
+}
+
+.light-mode #charityDetailsContainer .logo-detail-wrap {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Details list and contact text readability */
+.light-mode #charityDetailsContainer ul li,
+.light-mode #charityDetailsContainer .flex.items-center {
+  color: #374151 !important;
+}
+
+/* Hero/section text in light mode */
+.light-mode .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+.light-mode .accent {
+  color: var(--accent) !important;
+}
+
+/* Improve card title contrast */
+.light-mode .charity-select-card h3 {
+  color: #111 !important;
+}
+
+/* Slight hero pan background for charities page */
+.light-mode body.bg-main {
+  background: var(--bg);
+}
+
+/* Keep link/inline accent visible */
+.light-mode .accent:hover,
+.light-mode .accent:focus {
+  color: #0f5adf !important;
+}
+
+/* Details container spacing */
+.light-mode #charityDetailsContainer {
+  padding-top: 10px;
+}
+
+/* Buttons and actions (if added later) */
+.light-mode .charity-action-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.95rem 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(51, 153, 255, 0.18);
+}
+
+.light-mode .charity-action-btn:hover {
+  background: rgb(30, 79, 212);
+  transform: translateY(-2px);
+}
+
+/* Details card labels */
+.light-mode #charityDetailsContainer label {
+  color: #6b7280 !important;
+}
+
+/* Keep transition for page-specific elements */
+.light-mode .charity-select-card,
+.light-mode .logo-detail-wrap,
+.light-mode #charityDetailsContainer .bg-card {
+  transition: all 0.3s ease;
+}
+
+/* Details hero subtitle */
+.light-mode .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+/* Final border cleanup for light mode charity cards */
+.light-mode .charity-select-card,
+.light-mode #charityDetailsContainer .bg-card {
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* Details card text readability */
+.light-mode #charityDetailsContainer p,
+.light-mode #charityDetailsContainer li,
+.light-mode #charityDetailsContainer .flex.items-center {
+  color: #4b5563 !important;
+}
+
+/* Ensure icons stay visible */
+.light-mode #charityDetailsContainer i[data-lucide] {
+  color: rgb(51, 153, 255) !important;
+}
+
+/* Details title strong contrast */
+.light-mode #charityDetailsContainer h3 {
+  color: #111 !important;
+}
+
+/* subtle background for details wrapper */
+.light-mode #charityDetailsContainer {
+  background: transparent;
+}
+
+/* Details card inner section spacing */
+.light-mode #charityDetailsContainer .logo-detail-wrap {
+  padding: 1.25rem;
+}
+
+/* highlight list bullets in light mode */
+.light-mode #charityDetailsContainer ul li {
+  margin-bottom: 0.6rem;
+}
+
+/* support for any anchor accent lines */
+.light-mode .accent {
+  color: var(--accent) !important;
+}
+
+/* Safe fallback for action buttons */
+.light-mode .charity-action-btn {
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* ensure hero paragraph contrast */
+.light-mode .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+/* Avoid overly dark borders on charity cards */
+.light-mode .charity-select-card {
+  border: 1px solid rgba(0,0,0,0.08) !important;
+}
+
+.light-mode .charity-select-card:hover {
+  border-color: rgba(51,153,255,0.2) !important;
+}
+
+/* ensure detail section heading stands out */
+.light-mode #charityDetailsContainer h3 {
+  font-weight: 700;
+}
+
+/* Use neutral background for detail contact/info boxes */
+.light-mode #charityDetailsContainer .box {
+  background: #f8fafc;
+}
+
+/* subtle shadow for details wrapper */
+.light-mode #charityDetailsContainer .bg-card {
+  box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+}
+
+/* final readability fix for white icon containers */
+.light-mode .charity-select-card .logo-container {
+  background: #ffffff;
+}
+
+/* hero accent spacing */
+.light-mode .accent {
+  letter-spacing: 0.03em;
+}
+
+/* keep page mobile readability */
+.light-mode .charity-select-card,
+.light-mode #charityDetailsContainer .bg-card {
+  min-height: auto;
+}
+
+/* card title style override */
+.light-mode .charity-select-card h3 {
+  color: #111 !important;
+}
+
+/* card subtitle neutral tone */
+.light-mode .charity-select-card p {
+  color: #6b7280 !important;
+}
+
+/* detail container text tone */
+.light-mode #charityDetailsContainer .text-gray-300,
+.light-mode #charityDetailsContainer .text-gray-400,
+.light-mode #charityDetailsContainer .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+/* improve card border on light mode */
+.light-mode .charity-select-card,
+.light-mode .logo-detail-wrap {
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* lighten the main bg in light mode when body has bg-main */
+.light-mode body.bg-main {
+  background: #f9fafb;
+}
+
+/* ensure details container is visible on off-white page */
+.light-mode #charityDetailsContainer .bg-card {
+  background: #ffffff;
+}
+
+/* final CTA accent rule */
+.light-mode .accent {
+  color: var(--accent) !important;
+}
+
+/* end charity page light-mode overrides */
+
+/* Details card contrast wrap */
+.light-mode #charityDetailsContainer {
+  padding-top: 1rem;
+}
+
+.light-mode .logo-detail-wrap {
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* UI polish overrides */
+:root {
+  --ui-transition: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  --ui-shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.16);
+  --ui-shadow-strong: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
+button,
+input,
+select,
+textarea,
+.gold-btn,
+.outline-btn,
+.product-card,
+.sidebar,
+.bg-card.border,
+.toast,
+.feature-card,
+.cta-card,
+.card,
+.testimonial,
+.form-input {
+  transition: background-color var(--ui-transition),
+              color var(--ui-transition),
+              border-color var(--ui-transition),
+              box-shadow var(--ui-transition),
+              transform var(--ui-transition);
+}
+
+.gold-btn {
+  transition: background var(--ui-transition), transform var(--ui-transition), box-shadow var(--ui-transition);
+  box-shadow: 0 10px 22px rgba(51, 153, 255, 0.2);
+}
+
+.gold-btn:hover {
+  background: linear-gradient(135deg, rgb(77, 166, 255), rgb(0, 122, 244));
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(51, 153, 255, 0.28);
+}
+
+.outline-btn:hover {
+  background: rgba(51, 153, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(51, 153, 255, 0.12);
+}
+
+.product-card {
+  box-shadow: var(--ui-shadow-soft);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(51, 153, 255, 0.18);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22), 0 0 22px rgba(51, 153, 255, 0.08);
+}
+
+.sidebar {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.bg-card.border:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.16), 0 0 18px rgba(51, 153, 255, 0.06);
+}
+
+.toast {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24), 0 0 18px rgba(51, 153, 255, 0.08);
+}
+
+.light-mode .product-card {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .sidebar,
+.dark-mode .product-card,
+.dark-mode .mobile-menu,
+.dark-mode .nav-shadow,
+.dark-mode .bg-card.border,
+.dark-mode .toast {
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
+}
+
+.dark-mode .form-input {
+  background: #121212;
+  border-color: #2c2c2c;
+  color: #f1f1f1;
+}
+
+.dark-mode .form-input:focus {
+  box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.18);
+}
+
+.dark-mode .outline-btn:hover {
+  color: #ffffff !important;
+}
+
+.light-mode .outline-btn:hover {
+  background: rgba(51, 153, 255, 0.12);
+}
+
