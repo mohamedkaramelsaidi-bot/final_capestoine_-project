@@ -1,0 +1,149 @@
+﻿.donation-form-card {
+  max-width: 900px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.9rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #333;
+  background: #181818;
+  color: #fff;
+  padding: 16px 18px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.15);
+}
+
+.light-mode .form-input {
+  background: #f5f5f5;
+  border-color: #d7d7d7;
+  color: #111;
+}
+
+.light-mode .form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.18);
+}
+
+.light-mode .donation-form-card {
+  background: #ffffff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+}
+
+.light-mode .amount-button.active {
+  background: rgba(51, 153, 255, 0.12);
+  color: #111;
+  box-shadow: 0 0 0 2px rgba(51, 153, 255, 0.24);
+}
+
+.amount-select {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.amount-button {
+  border-radius: 16px;
+  padding: 1rem 0;
+  font-weight: 700;
+}
+
+.amount-button.active {
+  box-shadow: 0 0 0 2px rgba(51, 153, 255, 0.3);
+}
+
+.error-text {
+  color: #ff7676;
+  font-size: 0.85rem;
+  min-height: 1.25rem;
+  margin-top: 0.4rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #1a1a1a;
+  border: 1px solid var(--accent);
+  color: #fff;
+  padding: 16px 28px;
+  border-radius: 12px;
+  z-index: 200;
+  transition: .4s ease;
+  opacity: 0;
+  box-shadow: 0 8px 30px rgba(51, 153, 255, .2);
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .amount-select {
+    grid-template-columns: 1fr;
+  }
+
+  .donation-form-card {
+    border-radius: 24px;
+  }
+}
+
+.dark-mode nav a.accent,
+.dark-mode .mobile-menu a.accent
+ {
+  color: rgb(51, 153, 255) !important;
+}
+
+.dark-mode nav a,
+.dark-mode nav button,
+.dark-mode .desktop-nav a,
+.dark-mode .mobile-menu a,
+.dark-mode .mobile-menu button,
+.dark-mode #nav-brand,
+.dark-mode .support {
+  color: #fff !important;
+}
+
+/* Donate page UI polish overrides */
+.amount-button {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.amount-button:hover,
+.amount-button.active {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(51, 153, 255, 0.16);
+}
+
+.form-input {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.toast {
+  box-shadow: 0 12px 34px rgba(51, 153, 255, 0.18);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.dark-mode .form-input {
+  background: #121212;
+  border-color: #2d2d2d;
+  color: #f9f9f9;
+}
+

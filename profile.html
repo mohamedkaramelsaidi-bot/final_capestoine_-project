@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Profile | Clothes Bridge</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="productes.css">
+<script src="layout.js"></script>
+<script src="auth.js"></script>
+<script src="utils.js"></script>
+</head>
+<body class="h-full bg-main">
+<div id="app" class="h-full overflow-auto w-full">
+   <main-nav></main-nav>
+
+   <section class="relative py-16 px-4 text-center">
+     <h1 class="font-display text-5xl md:text-6xl font-light mb-4"><span data-i18n="profile_title">My Profile</span> <span class="accent font-semibold">✓</span></h1>
+     <p class="text-gray-300 max-w-lg mx-auto text-sm" data-i18n="profile_subtitle">Manage your account and view your activity</p>
+   </section>
+
+   <main class="max-w-7xl mx-auto px-4 pb-20">
+     <div id="notLoggedIn" class="text-center py-20 hidden">
+       <p class="text-gray-300 mb-4" data-i18n="not_logged_in">You are not logged in.</p>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center">
+         <button onclick="openAuthModal(); document.getElementById('signInForm').classList.add('hidden'); document.getElementById('registerForm').classList.remove('hidden');" class="gold-btn py-3 px-8 text-sm uppercase tracking-wider" data-i18n="register">Register</button>
+         <button onclick="openAuthModal()" class="outline-btn py-3 px-8 text-sm uppercase tracking-wider" data-i18n="sign_in">Sign In</button>
+       </div>
+     </div>
+
+     <div id="profileContent" class="hidden">
+       <!-- Profile Header -->
+       <div class="bg-card border border-[#222] rounded-3xl p-8 mb-8 shadow-lg">
+         <div class="flex flex-col md:flex-row items-center gap-8">
+           <img id="userAvatar" src="" alt="Avatar" class="w-32 h-32 rounded-full border-2 border-[rgb(51, 153, 255)]">
+           <div class="flex-1">
+             <h2 id="userName" class="text-2xl font-semibold mb-1"></h2>
+             <p id="userEmail" class="text-gray-300 mb-2"></p>
+             <p id="userType" class="text-sm text-[rgb(51, 153, 255)] font-medium mb-2"></p>
+             <p id="joinedDate" class="text-xs text-gray-500"></p>
+           </div>
+           <button onclick="handleLogout()" class="outline-btn py-2 px-6 text-sm uppercase tracking-wider" data-i18n="logout">Logout</button>
+         </div>
+       </div>
+
+       <!-- Stats -->
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+         <div class="bg-card border border-[#222] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition">
+           <p class="text-4xl accent font-bold mb-2" id="ordersCount">0</p>
+           <p class="text-gray-300 text-sm" data-i18n="orders_placed">Orders Placed</p>
+         </div>
+         <div class="bg-card border border-[#222] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition">
+           <p class="text-4xl accent font-bold mb-2" id="donationsCount">0</p>
+           <p class="text-gray-300 text-sm" data-i18n="items_donated">Items Donated</p>
+         </div>
+         <div class="bg-card border border-[#222] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition">
+           <p class="text-4xl accent font-bold mb-2" id="impactCount">0</p>
+           <p class="text-gray-300 text-sm" data-i18n="positive_impact">Positive Impact</p>
+         </div>
+       </div>
+
+       <!-- Action Buttons -->
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+         <a href="productes.html" class="gold-btn py-3 px-6 text-sm uppercase tracking-wider text-center" data-i18n="browse_shop">Browse Shop</a>
+         <a href="donate.html" class="outline-btn py-3 px-6 text-sm uppercase tracking-wider text-center" data-i18n="donate_now">Donate Now</a>
+         <button onclick="openAccountSettings()" class="border border-[#333] text-white py-3 px-6 text-sm uppercase tracking-wider hover:border-[rgb(51, 153, 255)] transition" data-i18n="account_settings">Account Settings</button>
+       </div>
+
+       <!-- Recent Purchases -->
+       <div class="bg-card border border-[#222] rounded-3xl p-8 mb-8 shadow-lg">
+         <h3 class="text-xl font-semibold mb-4" data-i18n="recent_purchases">Recent Purchases</h3>
+         <div id="recentPurchases">
+           <p class="text-gray-400 text-sm"><span data-i18n="no_purchases">No purchases yet.</span> <a href="productes.html" class="accent hover:underline" data-i18n="start_shopping">Start shopping</a></p>
+         </div>
+       </div>
+
+       <!-- Donations Made -->
+       <div class="bg-card border border-[#222] rounded-3xl p-8 shadow-lg">
+         <h3 class="text-xl font-semibold mb-4" data-i18n="donations_made">Donations Made</h3>
+         <div id="donationsMade">
+           <p class="text-gray-400 text-sm"><span data-i18n="no_donations">No donations yet.</span> <a href="donate.html" class="accent hover:underline" data-i18n="make_donation">Make your first donation</a></p>
+         </div>
+       </div>
+     </div>
+   </main>
+
+   <main-footer></main-footer>
+   <div class="toast" id="toast"></div>
+</div>
+
+<!-- Auth Modal -->
+<div class="modal-overlay" id="authModal" onclick="closeAuthModal(event)">
+  <div class="modal-panel max-w-md" onclick="event.stopPropagation()">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-display text-2xl font-semibold accent" data-i18n="auth_title">Sign In / Register</h2>
+      <button onclick="closeAuthModal()" class="hover:text-[rgb(51, 153, 255)] transition"><i data-lucide="x" style="width:22px;height:22px"></i></button>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Sign In Form -->
+      <div id="signInForm">
+        <h3 class="text-lg font-semibold mb-4" data-i18n="sign_in">Sign In</h3>
+        <form onsubmit="handleSignIn(event)" class="space-y-3">
+          <input type="email" id="signInEmail" class="form-input w-full" placeholder="Email" data-i18n-placeholder="email" required>
+          <input type="password" id="signInPassword" class="form-input w-full" placeholder="Password" data-i18n-placeholder="password" required>
+          <p id="signInError" class="error-text text-sm"></p>
+          <button type="submit" class="gold-btn w-full py-2 text-sm uppercase tracking-wider" data-i18n="sign_in">Sign In</button>
+        </form>
+        <p class="text-center text-sm text-gray-400 mt-4"><span data-i18n="no_account">Don't have an account?</span> <button onclick="toggleAuthForm()" class="accent hover:underline" data-i18n="register_here">Register here</button></p>
+      </div>
+
+      <!-- Register Form -->
+      <div id="registerForm" class="hidden">
+        <h3 class="text-lg font-semibold mb-4" data-i18n="register">Create Account</h3>
+        <form id="registerFormElement" onsubmit="handleRegister(event)" class="space-y-4">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-3" data-i18n="user_type">User Type</label>
+              <div class="flex gap-3">
+                <button type="button" class="register-user-type-btn flex-1 py-2.5 px-3 rounded-lg border border-[#333] text-gray-300 hover:border-[rgb(51, 153, 255)] hover:text-[rgb(51, 153, 255)] transition font-medium text-sm" data-type="individual" onclick="handleUserTypeSelect('individual')"><span data-i18n="type_individual">👤 Individual</span></button>
+                <button type="button" class="register-user-type-btn flex-1 py-2.5 px-3 rounded-lg border border-[#333] text-gray-300 hover:border-[rgb(51, 153, 255)] hover:text-[rgb(51, 153, 255)] transition font-medium text-sm" data-type="donor" onclick="handleUserTypeSelect('donor')"><span data-i18n="type_donor">💝 Donor</span></button>
+                <button type="button" class="register-user-type-btn flex-1 py-2.5 px-3 rounded-lg border border-[#333] text-gray-300 hover:border-[rgb(51, 153, 255)] hover:text-[rgb(51, 153, 255)] transition font-medium text-sm" data-type="charity" onclick="handleUserTypeSelect('charity')"><span data-i18n="type_charity">🤝 Charity</span></button>
+              </div>
+              <p id="registerTypeDescription" class="text-sm text-gray-400 mt-3 transition-all duration-300"></p>
+            </div>
+
+            <div id="registerFields" class="space-y-4"></div>
+          </div>
+
+          <p id="registerError" class="error-text text-sm"></p>
+          <button type="submit" class="gold-btn w-full py-2 text-sm uppercase tracking-wider" data-i18n="register">Register</button>
+        </form>
+        <p class="text-center text-sm text-gray-400 mt-4"><span data-i18n="has_account">Already have an account?</span> <button onclick="toggleAuthForm()" class="accent hover:underline" data-i18n="signin_here">Sign in here</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="productes.js"></script>
+<script src="profile.js"></script>
+</body>
+</html>

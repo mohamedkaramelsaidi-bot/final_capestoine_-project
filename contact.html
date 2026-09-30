@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Contact | Clothes Bridge</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="productes.css">
+<script src="layout.js"></script>
+<script src="auth.js"></script>
+<script src="utils.js"></script>
+</head>
+<body class="h-full bg-main">
+<div id="app" class="h-full overflow-auto w-full">
+   <main-nav></main-nav>
+
+   <section class="relative py-16 px-4 text-center">
+     <p class="uppercase text-xs tracking-[6px] accent mb-3 font-semibold" data-i18n="customer_care">Customer Care</p>
+     <h1 class="font-display text-5xl md:text-6xl font-light mb-4"><span data-i18n="contact_title">Contact Us</span></h1>
+     <p class="text-gray-300 max-w-lg mx-auto text-sm" data-i18n="contact_subtitle">We would love to hear from you</p>
+   </section>
+
+   <main class="max-w-3xl mx-auto px-4 pb-20">
+     <div class="bg-card border border-[#222] w-full rounded-3xl p-8 shadow-lg">
+       <form id="contactForm" class="space-y-6">
+         <div>
+           <label for="name" class="block mb-2 text-sm font-medium" data-i18n="name">Name</label>
+           <input id="name" type="text" class="form-input w-full" data-i18n-placeholder="placeholder_name" placeholder="Your Name" required>
+           <p class="error-text mt-1" id="errorName"></p>
+         </div>
+         <div>
+           <label for="email" class="block mb-2 text-sm font-medium" data-i18n="email">Email</label>
+           <input id="email" type="email" class="form-input w-full" data-i18n-placeholder="placeholder_email" placeholder="you@example.com" required>
+           <p class="error-text mt-1" id="errorEmail"></p>
+         </div>
+         <div>
+           <label for="message" class="block mb-2 text-sm font-medium" data-i18n="message">Message</label>
+           <textarea id="message" rows="5" class="form-input w-full" data-i18n-placeholder="placeholder_message" placeholder="Write your message..." required></textarea>
+           <p class="error-text mt-1" id="errorMessage"></p>
+         </div>
+         <button id="submitButton" type="submit" class="gold-btn w-full py-3 text-sm uppercase tracking-wider" data-i18n="send_message">Send Message</button>
+       </form>
+     </div>
+   </main>
+
+   <main-footer></main-footer>
+   <div class="toast" id="toast"></div>
+</div>
+
+<script src="productes.js"></script>
+<script src="contact.js"></script>
+</body>
+</html>

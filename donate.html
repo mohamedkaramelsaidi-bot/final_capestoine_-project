@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate | Clothes Bridge</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="productes.css">
+  <link rel="stylesheet" href="donate.css">
+  <script src="layout.js"></script>
+  <script src="auth.js"></script>
+  <script src="utils.js"></script>
+  <script>
+    // Restrict access for Charity and Individual users
+    (function() {
+        try {
+            const auth = localStorage.getItem('aurum_auth');
+            if (auth) {
+                const user = JSON.parse(auth);
+                // Charity users and Individuals should not access the donate page
+                if (user.userType === 'charity' || user.userType === 'individual') {
+                    window.location.href = 'index.html';
+                }
+            } else {
+                // Not authenticated - redirect to profile/login
+                window.location.href = 'profile.html?action=login';
+            }
+        } catch(e) {
+            // On error, redirect to home
+            window.location.href = 'index.html';
+        }
+    })();
+  </script>
+</head>
+ <body class="h-full bg-main">
+  <div id="app" class="h-full overflow-auto w-full">
+   <main-nav></main-nav>
+   <section class="relative py-16 px-4 text-center">
+    <p class="uppercase text-xs tracking-[6px] accent mb-3 font-semibold" data-i18n="hero_sub">Support Our Vision</p>
+    <h1 class="font-display text-5xl md:text-6xl font-light mb-4 support" id="heroTagline" data-i18n="hero_title">Support Our <span class="accent font-semibold">Vision</span></h1>
+    <p class="text-gray-300 max-w-lg mx-auto text-sm" data-i18n="hero_desc">Help us continue creating luxury fashion experiences</p>
+   </section>
+   <main class="max-w-7xl mx-auto px-4 pb-20">
+    <section class="donation-form-card mx-auto bg-card border border-[#222] rounded-[32px] shadow-[0_20px_80px_rgba(0,0,0,0.35)] p-8 sm:p-10 lg:p-12">
+     <div class="max-w-3xl mx-auto">
+      <p class="uppercase text-xs tracking-[6px] accent mb-3 font-semibold" data-i18n="donation_title">Donation Form</p>
+      <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-4 support" data-i18n="donation_heading">Give to our next luxury collection</h2>
+      <p class="text-gray-300 text-sm mb-10" data-i18n="donation_desc">Complete the form below to support ClothBridge and help us deliver premium fashion experiences.</p>
+      <form id="donationForm" class="space-y-6">
+       <div class="grid gap-6 lg:grid-cols-2">
+        <div>
+         <label class="form-label" for="fullName" data-i18n="label_fullName">Full Name *</label>
+         <input id="fullName" type="text" class="form-input" placeholder="Your full name" data-i18n-placeholder="placeholder_fullName" />
+         <p class="error-text" id="errorFullName"></p>
+        </div>
+        <div>
+         <label class="form-label" for="email" data-i18n="label_email">Email *</label>
+         <input id="email" type="email" class="form-input" placeholder="email@example.com" data-i18n-placeholder="placeholder_email" />
+         <p class="error-text" id="errorEmail"></p>
+        </div>
+       </div>
+       <div class="grid gap-6 lg:grid-cols-2">
+        <div>
+         <label class="form-label" for="type" data-i18n="label_type">Clothing Type *</label>
+         <select id="type" class="form-input" data-i18n-placeholder="placeholder_type">
+          <option value="" data-i18n="option_selectType">Select type</option>
+          <option data-i18n="option_mens">Men's</option>
+          <option data-i18n="option_womens">Women's</option>
+          <option data-i18n="option_unisex">Unisex</option>
+         </select>
+         <p class="error-text" id="errorType"></p>
+        </div>
+        <div>
+         <label class="form-label" for="items" data-i18n="label_items">Number of Items *</label>
+         <input id="items" type="number" min="1" class="form-input" placeholder="e.g. 5" data-i18n-placeholder="placeholder_items" />
+         <p class="error-text" id="errorItems"></p>
+        </div>
+       </div>
+             <div class="grid gap-6 lg:grid-cols-2">
+                <div>
+                 <label class="form-label" for="size" data-i18n="label_size">Size</label>
+                 <input id="size" type="text" class="form-input" placeholder="e.g. M, L, 40" data-i18n-placeholder="placeholder_size" />
+                 <p class="error-text" id="errorSize"></p>
+                </div>
+                <div>
+                 <label class="form-label" for="condition" data-i18n="label_condition">Condition</label>
+                 <select id="condition" class="form-input">
+                     <option value="" data-i18n="option_condition_select">Select condition</option>
+                     <option value="new" data-i18n="option_condition_new">New</option>
+                     <option value="like_new" data-i18n="option_condition_like_new">Like New</option>
+                     <option value="good" data-i18n="option_condition_good">Good</option>
+                     <option value="fair" data-i18n="option_condition_fair">Fair</option>
+                 </select>
+                 <p class="error-text" id="errorCondition"></p>
+                </div>
+             </div>
+       <div>
+        <label class="form-label" for="notes" data-i18n="label_notes">Additional Notes</label>
+        <textarea id="notes" rows="4" class="form-input" placeholder="Write here..." data-i18n-placeholder="placeholder_notes"></textarea>
+       </div>
+       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <button id="donateButton" type="submit" class="gold-btn w-full sm:w-auto py-3 text-sm uppercase tracking-wider d-btn p-10" data-i18n="submit_button">Submit Donation</button>
+        <p class="text-gray-500 text-xs" data-i18n="note_text">All donations support our next luxury collection.</p>
+       </div>
+      </form>
+     </div>
+    </section>
+   </main>
+   <main-footer></main-footer>
+   <div class="toast" id="toast"></div>
+  </div>
+  <script src="donate.js"></script>
+
+ </body>
+</html>

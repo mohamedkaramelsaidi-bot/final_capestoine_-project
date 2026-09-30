@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Home | Clothes Bridge</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="productes.css">
+ <script src="layout.js"></script>
+ <script src="auth.js"></script>
+ <script src="utils.js"></script>
+</head>
+
+<body class="h-full bg-main">
+<div id="app" class="h-full overflow-auto w-full">
+   <!-- NAVBAR -->
+   <main-nav></main-nav>
+
+<!-- HERO -->
+<section class="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center px-4 overflow-hidden" style="background-image: url('_3 أبريل 2026 عند الساعة 7_09 م.jpg'); background-position: center; background-size: cover;">
+  <div class="absolute inset-0 theme-overlay"></div>
+  <div class="absolute inset-0 theme-gradient-bottom"></div>
+  <div class="relative z-10 text-center max-w-3xl mx-auto">
+    <p class="uppercase text-xs tracking-[6px] accent mb-3 font-semibold animate-fade-in" data-i18n="home_hero_tag">Luxury Fashion Redefined</p>
+    <h1 class="font-display text-5xl md:text-7xl font-light mb-4 leading-tight" data-i18n="home_hero_title">Share Clothes, Spread Kindness Every Season</h1>
+    <p class="text-gray-300 max-w-lg mx-auto text-sm md:text-base mb-8 leading-relaxed" data-i18n="home_hero_desc">Discover premium fashion curated for elegance. Shop luxury pieces or donate gently worn clothing to make a meaningful impact.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="productes.html" class="gold-btn py-3 px-8 text-sm uppercase tracking-wider" data-i18n="home_shop_btn">Shop Now <i data-lucide="shopping-bag" style="width:16px;height:16px;display:inline;margin-left:8px"></i></a>
+      <a href="donate.html" class="outline-btn py-3 px-8 text-sm uppercase tracking-wider" data-i18n="home_donate_btn">Donate Now <i data-lucide="gift" style="width:16px;height:16px;display:inline;margin-left:8px"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-16 px-4 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-card border border-[#222] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+        <div class="w-16 h-16 bg-gradient-to-br from-[rgb(51, 153, 255)] to-[rgb(0, 102, 204)] rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="heart-handshake" style="width:32px;height:32px;"></i>
+        </div>
+        <h4 class="text-lg font-semibold mb-2" data-i18n="feature_donation">Smart Donation System</h4>
+        <p class="text-gray-300 text-sm" data-i18n="feature_donation_desc">Easy and organized way to donate clothes to those in need.</p>
+      </div>
+      <div class="bg-card border border-[#222] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+        <div class="w-16 h-16 bg-gradient-to-br from-[rgb(51, 153, 255)] to-[rgb(0, 102, 204)] rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="shield-check" style="width:32px;height:32px;"></i>
+        </div>
+        <h4 class="text-lg font-semibold mb-2" data-i18n="feature_security">Secure & Trusted Platform</h4>
+        <p class="text-gray-300 text-sm" data-i18n="feature_security_desc">Safe connection between donors and beneficiaries with verified transactions.</p>
+      </div>
+      <div class="bg-card border border-[#222] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+        <div class="w-16 h-16 bg-gradient-to-br from-[rgb(51, 153, 255)] to-[rgb(0, 102, 204)] rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="tag" style="width:32px;height:32px;"></i>
+        </div>
+        <h4 class="text-lg font-semibold mb-2" data-i18n="feature_prices">Affordable Prices</h4>
+        <p class="text-gray-300 text-sm" data-i18n="feature_prices_desc">Premium fashion at prices suitable for all budgets and occasions.</p>
+      </div>
+      <div class="bg-card border border-[#222] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+        <div class="w-16 h-16 bg-gradient-to-br from-[rgb(51, 153, 255)] to-[rgb(0, 102, 204)] rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="globe" style="width:32px;height:32px;"></i>
+        </div>
+        <h4 class="text-lg font-semibold mb-2" data-i18n="feature_impact">Social Impact</h4>
+        <p class="text-gray-300 text-sm" data-i18n="feature_impact_desc">Helping people and supporting communities worldwide through fashion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="py-16 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-8 text-center">
+      <p class="uppercase text-xs tracking-[6px] accent mb-2 font-semibold" data-i18n="features_sub">Curated Selection</p>
+      <h2 class="font-display text-3xl md:text-4xl font-semibold" data-i18n="features_title">Featured Pieces</h2>
+      <p class="text-gray-300 text-sm mt-2" data-i18n="features_desc">Our most coveted luxury items ready to elevate your wardrobe.</p>
+    </div>
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div class="text-center mt-8">
+      <a href="productes.html" class="inline-flex items-center gap-2 text-sm uppercase tracking-wider accent hover:text-white transition" data-i18n="featured_view_all">View Full Collection <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="py-16 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="cta-card bg-gradient-to-br from-[rgb(51, 153, 255)] from-0% to-[#111111] to-100% rounded-3xl p-8 md:p-12 shadow-xl flex flex-col justify-center">
+        <h3 class="cta-title text-2xl md:text-3xl font-semibold mb-3" data-i18n="cta_shop_title">Ready to Shop?</h3>
+        <p class="cta-desc text-sm mb-6" data-i18n="cta_shop_desc">Discover our exclusive collection of premium fashion pieces.</p>
+        <a href="productes.html" class="cta-btn py-3 px-6 text-sm uppercase tracking-wider rounded-lg w-fit" data-i18n="browse_collection_btn">Browse Collection</a>
+      </div>
+      <div class="cta-card bg-gradient-to-br from-[#1a1a1a] from-0% to-[rgb(51, 153, 255)] to-100% rounded-3xl p-8 md:p-12 shadow-xl flex flex-col justify-center">
+        <h3 class="cta-title text-2xl md:text-3xl font-semibold mb-3" data-i18n="cta_donate_title">Make a Difference</h3>
+        <p class="cta-desc text-sm mb-6" data-i18n="cta_donate_desc">Share your gently worn clothes and help those in need.</p>
+        <a href="donate.html" class="cta-btn gold-btn py-3 px-6 text-sm uppercase tracking-wider w-fit" data-i18n="start_donate_btn">Start Donating</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<main-footer></main-footer>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeProductOutside(event)">
+ <div class="modal-panel max-w-2xl">
+  <div class="flex items-center justify-between mb-6">
+   <h2 class="font-display text-2xl font-semibold accent" id="modalTitle" data-i18n="modal_title">Product Details</h2><button onclick="closeProduct()" class="hover:text-[rgb(51, 153, 255)] transition"><i data-lucide="x" style="width:22px;height:22px"></i></button>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+   <div>
+    <img id="modalImg" src="" alt="" class="w-full h-96 object-cover rounded-lg" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#1a1a1a,#2a2a2a)'">
+   </div>
+   <div>
+    <p class="text-xs tracking-[3px] accent uppercase mb-2" id="modalBadge"></p>
+    <h3 class="font-display text-2xl font-semibold mb-3" id="modalName"></h3>
+    <div class="flex items-center gap-3 mb-4">
+     <div id="modalStars"></div><span class="text-gray-400 text-sm" id="modalRating"></span>
+    </div>
+    <p class="text-gray-400 text-sm mb-4" id="modalDesc"></p>
+    <div class="mb-6">
+     <p class="text-gray-500 text-xs mb-2" data-i18n="modal_price_label">Price</p>
+     <p class="font-display text-3xl accent font-bold" id="modalPrice"></p>
+    </div><!-- COLOR SELECTION -->
+    <div class="mb-4"><label class="text-xs uppercase tracking-wider text-gray-400 mb-2 block" data-i18n="modal_color">Select Color</label> <select id="modalColor" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-[rgb(51, 153, 255)]"></select>
+    </div><!-- SIZE SELECTION -->
+    <div class="mb-6"><label class="text-xs uppercase tracking-wider text-gray-400 mb-2 block" data-i18n="modal_size">Select Size</label> <select id="modalSize" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-[rgb(51, 153, 255)]"></select>
+    </div>
+    <div class="flex gap-3">
+     <button class="gold-btn flex-1 py-3 text-sm uppercase tracking-wider" onclick="addToCartFromModal()" data-i18n="add_to_cart">Add to Cart</button> <button class="outline-btn flex-1 py-3 text-sm uppercase tracking-wider" onclick="openDonationModal(currentProductId); closeProduct();">Donate</button>
+    </div>
+    <p class="text-xs text-gray-500 mt-4 text-center" data-i18n="modal_footer_note">Premium quality guaranteed | 30-day returns</p>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal-overlay" id="cartModal" onclick="closeCartOutside(event)">
+ <div class="modal-panel">
+  <div class="flex items-center justify-between mb-6">
+   <h2 class="font-display text-2xl font-semibold accent" data-i18n="cart_title">Your Cart</h2><button onclick="closeCart()" class="hover:text-[rgb(51, 153, 255)] transition"><i data-lucide="x" style="width:22px;height:22px"></i></button>
+  </div>
+  <div id="cartItems"></div>
+  <div id="cartEmpty" class="text-center py-12 text-gray-500">
+   <i data-lucide="shopping-bag" style="width:48px;height:48px;margin:0 auto 12px;display:block;color:#333"></i>
+   <p data-i18n="cart_empty">Your cart is empty</p>
+  </div>
+  <div id="cartFooter" class="hidden mt-6 border-t border-[#222] pt-6">
+   <div class="flex justify-between text-lg font-semibold mb-6">
+    <span data-i18n="cart_total">Total</span> <span class="accent" id="cartTotal">$0</span>
+   </div><button onclick="showCheckout()" class="gold-btn w-full py-3 text-sm uppercase tracking-widest" data-i18n="checkout_btn">Proceed to Checkout</button>
+  </div><!-- CHECKOUT FORM -->
+  <div id="checkoutForm" class="hidden mt-6">
+   <h3 class="font-display text-xl accent mb-4" data-i18n="checkout_title">Checkout</h3>
+   <p class="text-xs text-gray-500 mb-4 italic">⚠️ Demo — no real payment processed</p>
+   <div class="space-y-3">
+    <div>
+     <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_full_name">Full Name</label> <input type="text" id="coName" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]" placeholder="John Doe" data-i18n-placeholder="checkout_name_placeholder">
+    </div>
+    <div>
+     <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_email">Email</label> <input type="email" id="coEmail" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]" placeholder="john@email.com" data-i18n-placeholder="checkout_email_placeholder">
+    </div>
+    <div>
+     <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_phone">Phone</label> <input type="tel" id="coPhone" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]" placeholder="+1 234 567 890" data-i18n-placeholder="checkout_phone_placeholder">
+    </div>
+    <div>
+     <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_address">Address</label> <input type="text" id="coAddr" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]" placeholder="123 Fashion St" data-i18n-placeholder="checkout_address_placeholder">
+    </div>
+    <div>
+     <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_payment_method">Payment Method</label> <select id="coPayment" onchange="toggleCardFields()" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]"> <option value="cod" data-i18n="checkout_payment_cod">Cash on Delivery</option> <option value="card" data-i18n="checkout_payment_card">Credit Card / Visa</option> </select>
+    </div>
+    <div id="cardFields" class="hidden space-y-3">
+     <div>
+      <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_card_number">Card Number</label> <input type="text" id="coCard" maxlength="19" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]" placeholder="1234 5678 9012 3456" oninput="formatCard(this)" data-i18n-placeholder="checkout_card_placeholder">
+     </div>
+     <div class="flex gap-3">
+      <div class="flex-1">
+       <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_expiry">Expiry</label> <input type="text" id="coExpiry" maxlength="5" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]" placeholder="MM/YY" oninput="formatExpiry(this)" data-i18n-placeholder="checkout_expiry_placeholder">
+      </div>
+      <div class="flex-1">
+       <label class="text-xs text-gray-400 mb-1 block" data-i18n="checkout_cvv">CVV</label> <input type="text" id="coCvv" maxlength="3" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[rgb(51, 153, 255)]" placeholder="123" data-i18n-placeholder="checkout_cvv_placeholder">
+      </div>
+     </div>
+    </div>
+    <div id="coError" class="text-red-400 text-xs hidden"></div><button onclick="processPayment()" class="gold-btn w-full py-3 text-sm uppercase tracking-widest mt-2" id="payBtn" data-i18n="confirm_pay">Confirm Payment</button>
+   </div>
+  </div><!-- SUCCESS -->
+  <div id="successView" class="hidden text-center py-16">
+   <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center check-anim" style="background:linear-gradient(135deg,rgb(51, 153, 255),rgb(0, 102, 204))">
+    <i data-lucide="check" style="width:32px;height:32px;color:#111"></i>
+   </div>
+   <h3 class="font-display text-2xl accent mb-2" data-i18n="payment_success_title">Payment Successful!</h3>
+   <p class="text-gray-400 text-sm" data-i18n="payment_success_desc">Your order has been confirmed.</p>
+  </div>
+ </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Donation Modal -->
+<div class="modal-overlay" id="donationModal" onclick="closeDonationModalOutside(event)">
+ <div class="modal-panel max-w-md">
+  <div class="flex items-center justify-between mb-6">
+   <h2 class="font-display text-2xl font-semibold accent" data-i18n="buy_and_donate">Buy & Donate</h2>
+   <button onclick="closeDonationModal()" class="hover:text-[rgb(51, 153, 255)] transition"><i data-lucide="x" style="width:22px;height:22px"></i></button>
+  </div>
+  
+  <div class="flex items-center gap-4 mb-6 bg-[#252525] p-3 rounded-xl border border-[#333]">
+   <img id="donationModalImg" src="" alt="Product" class="w-20 h-20 rounded-lg object-cover bg-black">
+   <div>
+    <h3 id="donationModalName" class="font-display text-xl font-semibold mb-1 text-white"></h3>
+    <p class="text-xs text-gray-400 mb-1 tracking-[3px] accent uppercase" id="donationModalBadge"></p>
+    <div class="flex items-center gap-2">
+      <p class="text-gray-500 text-xs" data-i18n="modal_price_label">Price:</p>
+      <p class="font-bold accent text-lg" id="donationModalPrice"></p>
+    </div>
+   </div>
+  </div>
+
+  <div class="space-y-4">
+   <div>
+    <label class="text-xs uppercase tracking-wider text-gray-400 mb-2 block" data-i18n="modal_qty">Quantity</label>
+    <input type="number" id="donationModalQty" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-[rgb(51, 153, 255)]" value="1" min="1">
+   </div>
+   
+   <div>
+    <label class="text-xs uppercase tracking-wider text-gray-400 mb-2 block" data-i18n="select_charity">Select Charity</label>
+    <select id="donationModalCharity" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-[rgb(51, 153, 255)]">
+     <option value="" data-i18n="choose_charity">Choose a charity partner</option>
+     <option value="children" data-i18n="charity_children">Children Care Fund</option>
+     <option value="medical" data-i18n="charity_medical">Medical Support</option>
+     <option value="education" data-i18n="charity_education">Education Foundation</option>
+     <option value="homeless" data-i18n="charity_homeless">Homelessness Fund</option>
+    </select>
+   </div>
+
+   <div>
+    <label class="text-xs uppercase tracking-wider text-gray-400 mb-2 block" data-i18n="optional_message">Message (Optional)</label>
+    <textarea id="donationModalMessage" class="w-full bg-[#252525] border border-[#333] rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-[rgb(51, 153, 255)]" placeholder="Add a personal message..." rows="2"></textarea>
+   </div>
+
+   <div class="p-3 rounded-lg bg-[rgba(255,165,0,0.1)] border border-[rgba(255,165,0,0.2)] text-xs text-gray-400 mt-2 leading-relaxed">
+    <span class="text-yellow-500">💛</span> <strong data-i18n="donation_note">Your payment covers the item cost. We deliver it to a verified beneficiary.</strong>
+   </div>
+
+   <div id="donationError" class="text-red-400 text-sm hidden"></div>
+
+   <div class="flex gap-3 pt-4">
+    <button type="button" onclick="closeDonationModal()" class="outline-btn flex-1 py-3 text-xs uppercase tracking-wider bg-[#111]" data-i18n="cancel">Cancel</button>
+    <button type="button" onclick="handleDonationSubmit()" class="gold-btn flex-1 py-3 text-xs uppercase tracking-wider"><span data-i18n="confirm_donation">Confirm Donation</span></button>
+   </div>
+  </div>
+ </div>
+</div>
+
+</div>
+
+<script src="productes.js"></script>
+</body>
+</html>

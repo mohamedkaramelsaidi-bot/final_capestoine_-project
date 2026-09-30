@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misr El Kheir Foundation - Clothes Bridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="home.css">
+    <script>
+        // Restrict access for Individual and Donor
+        (function() {
+            try {
+                const auth = localStorage.getItem('aurum_auth');
+                if (auth) {
+                    const user = JSON.parse(auth);
+                    if (user.userType === 'individual' || user.userType === 'donor') {
+                        window.location.href = 'index.html';
+                    }
+                } else {
+                    window.location.href = 'index.html';
+                }
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav id="main-nav"></nav>
+    <main-nav></main-nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-20 bg-green-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Misr El Kheir Foundation</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Human Development is our main goal.</p>
+        </div>
+    </section>
+
+    <!-- Charity Info -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="w-full md:w-1/2 bg-white flex items-center justify-center border-b md:border-b-0 md:border-r border-gray-100">
+                    <img src="https://www.google.com/s2/favicons?domain=mekeg.org&sz=256" alt="Misr El Kheir" class="object-contain p-8 w-48 h-48 md:w-64 md:h-64">
+                </div>
+                <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold mb-4">About Misr El Kheir</h2>
+                    <p class="text-gray-600 mb-6">Misr El Kheir Foundation (MEK) is a non-profit development institution established in 2007 with the objective of developing the Egyptian individual in a comprehensive manner.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Services</h3>
+                    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1">
+                        <li>Social Solidarity & Clothing</li>
+                        <li>Health and Medical Care</li>
+                        <li>Education</li>
+                        <li>Scientific Research</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mb-2">Contact Info</h3>
+                    <div class="text-gray-600 space-y-2">
+                        <p class="flex items-center"><i data-lucide="phone" class="w-4 h-4 mr-2"></i> 16140</p>
+                        <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2"></i> info@mekeg.org</p>
+                        <p class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i> Cairo, Egypt</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="ourcharities.html" class="inline-block text-green-600 hover:text-green-800 font-semibold">&larr; Back to Charities</a>
+            </div>
+        </div>
+    </section>
+
+    <main-footer></main-footer>
+
+    <script src="layout.js" type="module"></script>
+    <script src="auth.js"></script>
+    <script>
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
