@@ -61,6 +61,7 @@ html {
   border-color: #edf1f6;
 }
 
+
 .light-mode .sidebar select,
 .light-mode .sidebar input {
   background: #f5f5f5;
@@ -125,6 +126,7 @@ html {
 
 .light-mode .text-gray-600 {
   color: #667085 !important;
+
 }
 
 .light-mode .bg-card .w-16 i[data-lucide],
@@ -136,6 +138,7 @@ html {
   color: #344054 !important;
   stroke: currentColor !important;
   fill: none !important;
+
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -283,6 +286,7 @@ html {
   border-color: #e5eaf1 !important;
   background: #ffffff;
   box-shadow: 0 18px 50px rgba(16, 24, 40, 0.08);
+
 }
 .light-mode .cart-counter {
   background: var(--accent);
@@ -439,9 +443,7 @@ body {
   border: 0;
   background: transparent;
   text-align: inherit;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
+
 }
 
 .img-wrap:focus-visible {
@@ -858,6 +860,7 @@ nav.sticky {
 .light-mode nav.sticky {
   background: rgba(255, 255, 255, 0.78) !important;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+
 }
 
 /* Glassmorphic Modals Override */
@@ -1518,6 +1521,7 @@ nav a:hover i[data-lucide],
     height: min(35vh, 280px);
   }
 }
+
 
 /* final readability fix for white icon containers */
 .light-mode .charity-select-card .logo-container {
